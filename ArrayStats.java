@@ -47,7 +47,7 @@ public class ArrayStats {
 		int half = a.length/2;
 		Arrays.sort(a);
 		if(a.length%2!=0) {
-			System.out.println("Median is: "+a[a.length/2]);
+			System.out.println("Median is: "+a[half]);
 		}
 		else {
 			double median = (a[half-1]+a[half+1])/2.0;
