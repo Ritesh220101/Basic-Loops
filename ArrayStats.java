@@ -44,17 +44,26 @@ public class ArrayStats {
 			}
 		}
 		
+		int half = a.length/2;
+		Arrays.sort(a);
+		if(a.length%2!=0) {
+			System.out.println("Median is: "+a[a.length/2]);
+		}
+		else {
+			double median = (a[half-1]+a[half+1])/2.0;
+			System.out.println("Median is: "+median);
+		}
+		
+		System.out.println("Sum is: "+sum);
+		System.out.println("Average is: "+average);
+		System.out.println("Minimum is: "+min);
+		System.out.println("Maximum is: "+max);
 		for(int i=0;i<a.length;i++) {
 			if(freq[i]!=-1) {
 				System.out.println(a[i]+" frequency is "+freq[i]);
 			}
 		}
 		
-		
-		System.out.println(sum);
-		System.out.println(average);
-		System.out.println(min);
-		System.out.println(max);
 	}
 
 }
