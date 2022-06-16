@@ -17,6 +17,7 @@ class BookCricket{
 			pageNumber1 = sc.nextInt();
 			score1 += pageNumber1%7;
 		}
+		
 		System.out.println(playerName1+" score is: "+score1);
 		
 		System.out.println("Player: "+playerName2);
@@ -33,7 +34,9 @@ class BookCricket{
 		
 		if(score1>score2)
 			System.out.println(playerName1+" wins");
-		else System.out.println(playerName2+" wins"); 
+		else if(score1==score2)
+			System.out.println("Draw"); 
+		else System.out.println(playerName2+" wins");
 	}
 
 }
