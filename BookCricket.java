@@ -11,11 +11,12 @@ class BookCricket{
 		System.out.println("Open the book");
 		int pageNumber1 = sc.nextInt();
 		int score1 = pageNumber1%7;
-		
+		int count1 = 1;
 		while(pageNumber1%7!=0){
 			System.out.println("Open the book");
 			pageNumber1 = sc.nextInt();
 			score1 += pageNumber1%7;
+			count1+=1;
 		}
 		
 		System.out.println(playerName1+" score is: "+score1);
@@ -24,18 +25,17 @@ class BookCricket{
 		System.out.println("Open the book");
 		int pageNumber2 = sc.nextInt();
 		int score2 = pageNumber2%7;
-		
-		while(score2<score1 && pageNumber2%7!=0){
+		int count2 = 0;
+		while(score2 <= score1 && pageNumber2%7!=0){
 			System.out.println("Open the book");
 			pageNumber2 = sc.nextInt();
 			score2 += pageNumber2%7;
+			count2 +=1;
  		}
 		System.out.println(playerName2+" score is: "+score2);
 		
-		if(score1>score2)
+		if(score1 > score2 || (score1 == score2 && count1 < count2))
 			System.out.println(playerName1+" wins");
-		else if(score1==score2)
-			System.out.println("Draw"); 
 		else System.out.println(playerName2+" wins");
 	}
 
