@@ -40,7 +40,8 @@ public class CricketBook {
 						turns1-=1;
 						count1+=1;
 						System.out.println("Pagenumber: "+pageNumber1+"\t Point:"+point1+"\t Score:"+score1);
-						System.out.println("Score is: "+score1+" Number of turns taken by "+player1+" is "+count1);
+						System.out.println("Score is: "+score1);
+						System.out.println("Number of turns taken by "+player1+" is "+count1);
 						break;
 					}
 						
@@ -70,6 +71,9 @@ public class CricketBook {
 			
 			if(score1 > score2 || (score1 == score2 && count1 < count2))
 				System.out.println(player1+" wins");
+			else if(score1==score2 && count1==count2) {
+				System.out.println("Draw");
+			}
 			else System.out.println(player2+" wins");
 		}
 		else {
