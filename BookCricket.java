@@ -1,42 +1,80 @@
+package com.aurionpro.test;
 import java.util.*;
-class BookCricket{
-	public static void main(String[] args){
+public class CricketBook {
+
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter Player 1 Name: ");
-		String playerName1 = sc.next();
-		System.out.print("Enter Player 2 Name: ");
-		String playerName2 = sc.next();
-		
-		System.out.println("Player: "+playerName1);
-		System.out.println("Open the book");
-		int pageNumber1 = sc.nextInt();
-		int score1 = pageNumber1%7;
-		int count1 = 1;
-		while(pageNumber1%7!=0){
-			System.out.println("Open the book");
-			pageNumber1 = sc.nextInt();
-			score1 += pageNumber1%7;
-			count1+=1;
+		Random rand = new Random();
+		System.out.print("Enter 1 to start the game and 0 to exit: ");
+		int start = sc.nextInt();
+		if(start==1) {
+			System.out.print("Enter player1 name: ");
+			String player1 = sc.next();
+			System.out.print("Enter player2 name: ");
+			String player2 = sc.next();
+			int turns1 = 12;
+			int turns2 = 12;
+			int lower = 1;
+			int upper = 300;
+			int score1 = 0;
+			int point1 = 0;
+			int score2 = 0;
+			int point2 = 0;
+			int count1 = 0;
+			int count2 = 0;
+			while(turns1!=0) {
+				System.out.println("Player1: "+player1);
+				System.out.print("Enter 1 to open book: ");
+				int num1 = sc.nextInt();
+				if(num1==1) {
+					int pageNumber1 = (int) (Math.random() * (upper - lower)) + lower;
+					if(pageNumber1%7!=0) {
+						point1 = pageNumber1%7;
+						score1+=point1;
+						turns1-=1;
+						count1+=1;
+						System.out.println("Pagenumber: "+pageNumber1+"\t Point:"+point1+"\t Score:"+score1);
+					}
+					if(pageNumber1%7==0){
+						point1 = pageNumber1%7;
+						turns1-=1;
+						count1+=1;
+						System.out.println("Pagenumber: "+pageNumber1+"\t Point:"+point1+"\t Score:"+score1);
+						System.out.println("Score is: "+score1+" Number of turns taken by "+player1+" is "+count1);
+						break;
+					}
+						
+				}
+			}
+			while(turns2!=0) {
+				System.out.println("Player2: "+player2);
+				System.out.print("Enter 1 to open the book: ");
+				int num2 = sc.nextInt();
+				if(num2==1) {
+					int pageNumber2 = (int) (Math.random() * (upper - lower)) + lower;
+					if(score2<=score1 && pageNumber2%7!=0) {
+						point2 = pageNumber2%7;
+						score2+=point2;
+						turns2-=1;
+						System.out.println("Pagenumber: "+pageNumber2+"\t Point:"+point2+"\t Score:"+score2);
+					}
+					else if(pageNumber2%7==0){
+						point2 = pageNumber2%7;
+						System.out.println("Pagenumber: "+pageNumber2+"\t Point:"+point2+"\t Score:"+score2);
+						turns2-=1;
+						break;
+					}
+
+				}
+			}
+			
+			if(score1 > score2 || (score1 == score2 && count1 < count2))
+				System.out.println(player1+" wins");
+			else System.out.println(player2+" wins");
 		}
-		
-		System.out.println(playerName1+" score is: "+score1);
-		
-		System.out.println("Player: "+playerName2);
-		System.out.println("Open the book");
-		int pageNumber2 = sc.nextInt();
-		int score2 = pageNumber2%7;
-		int count2 = 0;
-		while(score2 <= score1 && pageNumber2%7!=0){
-			System.out.println("Open the book");
-			pageNumber2 = sc.nextInt();
-			score2 += pageNumber2%7;
-			count2 +=1;
- 		}
-		System.out.println(playerName2+" score is: "+score2);
-		
-		if(score1 > score2 || (score1 == score2 && count1 < count2))
-			System.out.println(playerName1+" wins");
-		else System.out.println(playerName2+" wins");
+		else {
+			System.out.print("Exited");
+		}
 	}
 
 }
