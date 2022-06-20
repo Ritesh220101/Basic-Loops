@@ -1,6 +1,6 @@
 package com.aurionpro.test;
 import java.util.*;
-public class CricketBook {
+public class BookCricket {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -47,7 +47,9 @@ public class CricketBook {
 						
 				}
 			}
-			while(turns2!=0) {
+			
+			System.out.println(player2+" needs "+(score1+1)+" runs to win");
+			while(turns2!=0 && score2<=score1) {
 				System.out.println("Player2: "+player2);
 				System.out.print("Enter 1 to open the book: ");
 				int num2 = sc.nextInt();
