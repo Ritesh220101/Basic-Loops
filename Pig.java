@@ -22,7 +22,6 @@ public class Pig {
 				turnSum += die;
 				if (die == 1) {
 					turnSum = 0;
-					totalSum += turnSum;
 					turns += 1;
 					System.out.println("Total Sum: " + totalSum);
 					System.out.println("Turn Over, No Score");
