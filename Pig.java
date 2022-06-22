@@ -11,28 +11,30 @@ public class Pig {
 		int upper = 6;
 		int turns = 1;
 		int target = 20;
+		int turnSum = 0;
 		while (totalSum < target) {
 			System.out.println("TURN " + turns);
 			System.out.print("Roll or hold? (r/h): ");
 			char c = sc.next().charAt(0);
 			if (c == 'r') {
-
 				int die = (int) (Math.random() * (upper - lower)) + lower;
 				System.out.println("Die : " + die);
-				totalSum += die;
-
+				turnSum += die;
 				if (die == 1) {
-					totalSum = 0;
+					turnSum = 0;
+					totalSum += turnSum;
 					turns += 1;
 					System.out.println("Total Sum: " + totalSum);
 					System.out.println("Turn Over, No Score");
 					System.out.println();
 				}
+
 			} else if (c == 'h') {
 				turns += 1;
-
+				totalSum += turnSum;
 				System.out.println("Total sum is: " + totalSum);
 				System.out.println();
+				turnSum = 0;
 			} else {
 				System.out.println("Code Exited");
 				break;
