@@ -30,11 +30,11 @@ public class Pig {
 				}
 
 			} else if (c == 'h') {
-				turns += 1;
 				totalSum += turnSum;
 				System.out.println("Total sum is: " + totalSum);
 				System.out.println();
 				turnSum = 0;
+				turns+=1;
 			} else {
 				System.out.println("Code Exited");
 				break;
@@ -42,8 +42,6 @@ public class Pig {
 		}
 		if (totalSum >= target) {
 			System.out.println("Total Sum is: " + totalSum);
-			System.out.println("\nYou finished in " + turns + " turns!");
+			System.out.println("\nYou finished in " + (turns-1) + " turns!");
 		}
 	}
-
-}
