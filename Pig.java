@@ -19,17 +19,13 @@ public class PigDiceMultiplayer {
 		int player2TotalSum = 0;
 		int turn1 = 1;
 		int turn2 = 1;
-		int die1 = 0;
-		int die2 = 0;
-		char c1 = 'a';
-		char c2 = 'a';
 		while (player1TotalSum < target && player2TotalSum < target) {
 			while (player1TotalSum < target) {
 				System.out.println("TURN of " + player1 + " " + turn1);
 				System.out.print("Roll or hold? (r/h): ");
-				c1 = sc.next().charAt(0);
+				char c1 = sc.next().charAt(0);
 				if (c1 == 'r') {
-					die1 = (int) (Math.random() * (upper - lower)) + lower;
+					int die1 = (int) (Math.random() * (upper - lower)) + lower;
 					System.out.println("Die : " + die1);
 					player1TurnSum += die1;
 					if (die1 == 1) {
@@ -54,9 +50,9 @@ public class PigDiceMultiplayer {
 			while (player2TotalSum < target && player1TotalSum<target) {
 				System.out.println("TURN of " + player2 + " " + turn2);
 				System.out.print("Roll or hold? (r/h): ");
-				c2 = sc.next().charAt(0);
+				char c2 = sc.next().charAt(0);
 				if (c2 == 'r') {
-					die2 = (int) (Math.random() * (upper - lower)) + lower;
+					int die2 = (int) (Math.random() * (upper - lower)) + lower;
 					System.out.println("Die : " + die2);
 					player2TurnSum += die2;
 					if (die2 == 1) {
