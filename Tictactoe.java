@@ -22,40 +22,43 @@ public class Tictactoe {
 		}
 
 		while (count != 9) {
-
-			printTicTacToe(a);
-			System.out.println("Enter your move: ");
-			int row = sc.nextInt();
-			int col = sc.nextInt();
-			if (lastEnteredPlayer2 == true && b[row][col] == false) {
-				a[row][col] = mark1;
-				b[row][col] = true;
-				lastEnteredPlayer1 = true;
-				lastEnteredPlayer2 = false;
-			}
-
-			if (lastEnteredPlayer1 == true && b[row][col] == false) {
-				a[row][col] = mark2;
-				b[row][col] = true;
-				lastEnteredPlayer2 = true;
-				lastEnteredPlayer1 = false;
-			}
-			if ((a[0][0].equals(a[0][1]) && a[0][0].equals(a[0][2]))
-					|| (a[1][0].equals(a[1][1]) && a[1][0].equals(a[1][2]))
-					|| (a[2][0].equals(a[2][1]) && a[2][0].equals(a[2][2]))
-					|| (a[0][0].equals(a[1][0]) && a[0][0].equals(a[2][0]))
-					|| (a[0][1].equals(a[1][1]) && a[0][1].equals(a[2][1]))
-					|| (a[0][2].equals(a[1][2]) && a[0][2].equals(a[2][2]))
-					|| (a[0][0].equals(a[1][1]) && a[0][0].equals(a[2][2]))
-					|| (a[0][2].equals(a[1][1]) && a[0][2].equals(a[2][0]))) {
-
+			try {
 				printTicTacToe(a);
-				mark = a[row][col];
-				System.out.println("Player " + mark + " wins!!!!!!");
-				break;
-			}
-			count++;
+				System.out.println("Enter your move: ");
+				int row = sc.nextInt();
+				int col = sc.nextInt();
+				if (lastEnteredPlayer2 == true && b[row][col] == false) {
+					a[row][col] = mark1;
+					b[row][col] = true;
+					lastEnteredPlayer1 = true;
+					lastEnteredPlayer2 = false;
+				}
 
+				if (lastEnteredPlayer1 == true && b[row][col] == false) {
+					a[row][col] = mark2;
+					b[row][col] = true;
+					lastEnteredPlayer2 = true;
+					lastEnteredPlayer1 = false;
+				}
+				if ((a[0][0].equals(a[0][1]) && a[0][0].equals(a[0][2]))
+						|| (a[1][0].equals(a[1][1]) && a[1][0].equals(a[1][2]))
+						|| (a[2][0].equals(a[2][1]) && a[2][0].equals(a[2][2]))
+						|| (a[0][0].equals(a[1][0]) && a[0][0].equals(a[2][0]))
+						|| (a[0][1].equals(a[1][1]) && a[0][1].equals(a[2][1]))
+						|| (a[0][2].equals(a[1][2]) && a[0][2].equals(a[2][2]))
+						|| (a[0][0].equals(a[1][1]) && a[0][0].equals(a[2][2]))
+						|| (a[0][2].equals(a[1][1]) && a[0][2].equals(a[2][0]))) {
+
+					printTicTacToe(a);
+					mark = a[row][col];
+					System.out.println("Player " + mark + " wins!!!!!!");
+					break;
+				}
+				count++;
+
+			} catch (Exception e) {
+				System.out.println("Array index out of bounds exception");
+			}
 		}
 
 		if (count == 9) {
