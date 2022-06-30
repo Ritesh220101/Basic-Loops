@@ -27,6 +27,8 @@ public class Tictactoe {
 				System.out.println("Enter your move: ");
 				int row = sc.nextInt();
 				int col = sc.nextInt();
+				if (b[row][col] == true)
+					System.out.println("That position is already filled please enter a different position");
 				if (lastEnteredPlayer2 == true && b[row][col] == false) {
 					a[row][col] = mark1;
 					b[row][col] = true;
