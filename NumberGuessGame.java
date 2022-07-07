@@ -7,7 +7,6 @@ public class NumberGuessGame {
 	public static int lower = 1;
 	public static int numberOfAttempts = 6;
 	public static int turn = 1;
-	public static int userNumber = -1;
 
 	public static void main(String[] args) {
 		toStartOrExit();
@@ -31,11 +30,9 @@ public class NumberGuessGame {
 
 	private static void startNumberGuessingGame() {
 		int number = getRandomNumber();
-		System.out.println("Number :" + number);
-		while (turn <= numberOfAttempts && userNumber != number) {
+		while (turn <= numberOfAttempts) {
 			boolean guess = startGuessing(number);
 			checkGuess(guess);
-
 		}
 		if (turn == 7) {
 			System.out.println("Oops you could'nt guess the number correctly your attempts have been over!!!");
@@ -48,6 +45,7 @@ public class NumberGuessGame {
 	private static void checkGuess(boolean guess) {
 		if (guess) {
 			System.out.println("You've guessed it right in " + turn + " attempts");
+			System.out.println("-----------------------------------------");
 			turn = 1;
 			toStartOrExit();
 		}
@@ -57,13 +55,16 @@ public class NumberGuessGame {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Attempt: " + turn);
 		System.out.print("Enter the number: ");
-		userNumber = sc.nextInt();
+		int userNumber = sc.nextInt();
 		if (userNumber == number) {
 			return true;
-		} else if (userNumber > number)
+		} else if (userNumber > number) {
 			System.out.println("Sorry, number is too high");
-		else if (userNumber < number)
+			System.out.println("-----------------------------------------");
+		} else if (userNumber < number) {
 			System.out.println("Sorry, number is too low");
+			System.out.println("-----------------------------------------");
+		}
 		turn += 1;
 		return false;
 
