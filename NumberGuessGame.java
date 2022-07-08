@@ -21,11 +21,6 @@ public class NumberGuessGame {
 
 		if (start == 0)
 			System.out.println("Exited from the number guessing game");
-
-		if (start != 1 && start != 0) {
-			System.out.println("Invalid input enter either 1 or 0");
-			toStartOrExit();
-		}
 	}
 
 	private static void startNumberGuessingGame() {
